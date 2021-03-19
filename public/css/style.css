@@ -1,0 +1,14 @@
+body {
+    background-image: url("../images/tech.jpeg");
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bolder;
+    color: antiquewhite;
+    margin: 10px;
+}
+
+a {
+    color: white;
+}
