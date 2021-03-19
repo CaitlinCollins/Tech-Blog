@@ -1,6 +1,15 @@
 body {
-    background-image: url("../images/tech.jpeg");
+    background-image: url("../images/goldengate.jpg");
 }
+
+header {
+    background-color: rgb(184, 97, 70);
+    height: 100px;
+}
+#navbar {
+    height: 30px;
+}
+
 
 h1 {
     font-size: 36px;
@@ -10,5 +19,42 @@ h1 {
 }
 
 a {
-    color: white;
+    color:antiquewhite;
+    margin: 10px;
+    text-emphasis: none;
+}
+
+#lowerContainer {
+    background-color: rgb(184, 97, 70);
+    height: 40px;
+}
+.signupContainer {
+    margin: 80px 0px 160px 0px;
+    height: 390px;
+    border-style: solid; 
+    border-color: rgb(184, 97, 70);
+}
+#footer {
+    padding: 10px;
+}
+.form {
+    margin: 20px;
+}
+
+.input, .label {
+    width: 400px;
+    font-size: 24px;
+}
+.label {
+    color: antiquewhite;
+}
+.login {
+    width: 408px;
+    font-size: 24px;
+    height: 40px;
+    color: antiquewhite;
+    background-color: rgb(184, 97, 70);
+}
+.login:hover {
+    cursor: pointer;
 }
