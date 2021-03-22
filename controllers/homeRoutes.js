@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevents access to the home page if not logged in.
@@ -46,6 +45,11 @@ router.get('/login', async (req, res) => {
   }
   res.render('login');
 });
+
+// Directs to signup page on click event.
+router.get('/signup', async (req, res) => {
+  res.render('signup');
+})
 
 
 

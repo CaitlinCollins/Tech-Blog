@@ -23,7 +23,14 @@ h1 {
     font-size: 36px;
     font-weight: bolder;
     color: antiquewhite;
-    margin: 0px 0 0 12px;
+    margin: 0px 0px 0px 12px;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: bolder;
+    color: antiquewhite;
+    margin-left: 20px;
 }
 
 a {
@@ -33,7 +40,7 @@ a {
 }
 .signupContainer {
     margin: 80px 10px 150px 10px;
-    padding-top: 30px;
+    padding: 5px 0px;
     height: 360px;
     width: 450px;
     border-style: solid; 

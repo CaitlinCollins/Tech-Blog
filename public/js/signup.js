@@ -2,15 +2,15 @@ const signUpForm = async (event) => {
     event.preventDefault();
 
     // Trim and get the values of the user name and password.
-    const signUpUser = document.querySelector('#signUpUser').value.trim();
-    const signUpPass = document.querySelector('#signUpPass').value.trim();
+    const username = document.querySelector('#signUpUser').value.trim();
+    const password = document.querySelector('#signUpPass').value.trim();
 
     // If signUpUser and signUpPass exist, go to post.
-    if (signUpUser && signUpPass) {
+    if (username && password) {
         const response = await fetch('/api/users/signup', 
         {
             method: 'POST',
-            body: JSON.stringify({ signUpUser, signUpPass }),
+            body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -25,3 +25,10 @@ const signUpForm = async (event) => {
 };
 
 document.querySelector('.signup-form').addEventListener('sumbit', signUpForm);
+
+const logIn = async (event) => {
+    event.preventDefault();
+    document.location.replace('/login')
+}
+
+document.querySelector('#login').addEventListener('click', logIn);

@@ -1,12 +1,16 @@
 const router = require('express').Router();
-const { Model } = require('sequelize/types');
 const { User } = require('../../models');
 
 
 // Takes sign up information and posts it to the User table in the database.
 router.post('/signup', async (req, res) => {
     try {
-        const userData = await User.create(req.body);
+        const userData = await User.create( 
+            {
+                user_name: req.body.username,
+                password: req.body.password,
+            });
+        console.log(userData);
         res.status(200).json(userData);
     }
     catch (err) {
@@ -35,7 +39,7 @@ router.post('/login', async (req, res) => {
         // Saves a session to logged_in.
         req.session.save(() => {
             req.session.user_name = userData.userName;
-            req.session.leggin_in = true;
+            req.session.logged_in = true;
 
             res.json({ user: userData, message: 'You are now logged in!' });
         });

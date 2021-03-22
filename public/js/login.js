@@ -24,3 +24,12 @@ const loginForm = async (event) => {
 };
 
 document.querySelector('.personal-form').addEventListener('submit', loginForm);
+
+const signUp = async (event) => {
+    event.preventDefault();
+    document.location.replace('/signup')
+}
+
+document.querySelector('#signup').addEventListener('click', signUp);
+
+
