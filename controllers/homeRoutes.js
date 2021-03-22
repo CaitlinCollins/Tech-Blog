@@ -1,5 +1,6 @@
 const router = require('express').Router();
-
+const { User } = require('../models');
+const withAuth = require('../utils/auth');
 
 // direct user to login page on root and on /login routes
 router.get('/', async (req, res) => {

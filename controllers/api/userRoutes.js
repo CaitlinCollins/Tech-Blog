@@ -18,7 +18,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        // Checks that the password is a match.
+        // Checks that the password is a match using the User Model.
         const validPass = await userData.checkPassword(req.body.password);
 
         if (!validPass) {
