@@ -13,7 +13,7 @@ const loginForm = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        // If everything is ok, replace /login with root.
+        // If everything is ok, replace /login with /home.
         if (response.ok) {
             document.location.replace('/home');
         }

@@ -4,8 +4,8 @@ const withAuth = require('../utils/auth');
 // Prevents access to the home page if not logged in.
 router.get('/', withAuth, async (req, res) => {
   try {
-  res.render('home', {
-    logged_in: req.session.loggedIn,
+  res.render('login', {
+    loggedIn: req.session.loggedIn,
   });
   }
   catch (err) {
@@ -14,25 +14,13 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // Prevents access to the home page if not logged in.
-router.get('/home', async (req, res) => {
+router.get('/home', withAuth, async (req, res) => {
   try {
   res.render('home', {
-    logged_in: req.session.loggedIn,
+    loggedIn: req.session.loggedIn,
   });
   }
   catch (err){
-    res.status(500).json(err);
-  }
-});
-
-// Prevents access to the dashboard page if not logged in.
-router.get('/dashboard', async (req, res) => {
-  try {
-    res.render('dashboard', {
-      logged_in: req.session.loggedIn,
-    });
-  }
-  catch (err) {
     res.status(500).json(err);
   }
 });
@@ -50,6 +38,18 @@ router.get('/login', async (req, res) => {
 router.get('/signup', async (req, res) => {
   res.render('signup');
 })
+
+// Prevents access to the dashboard page if not logged in.
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    res.render('dashboard', {
+      loggedIn: req.session.loggedIn,
+    });
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 
