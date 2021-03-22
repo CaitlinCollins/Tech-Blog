@@ -15,7 +15,7 @@ const loginForm = async (event) => {
 
         // If everything is ok, replace /login with root.
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/home');
         }
         else {
             alert('Login unsuccessful.');

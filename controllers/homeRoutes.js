@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   try {
   res.render('home', {
-    logged_in: req.session.logged_in,
+    logged_in: req.session.loggedIn,
   });
   }
   catch (err) {
@@ -14,10 +14,10 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // Prevents access to the home page if not logged in.
-router.get('/home', withAuth, async (req, res) => {
+router.get('/home', async (req, res) => {
   try {
   res.render('home', {
-    logged_in: req.session.logged_in,
+    logged_in: req.session.loggedIn,
   });
   }
   catch (err){
@@ -26,10 +26,10 @@ router.get('/home', withAuth, async (req, res) => {
 });
 
 // Prevents access to the dashboard page if not logged in.
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard', async (req, res) => {
   try {
     res.render('dashboard', {
-      logged_in: req.session.logged_in,
+      logged_in: req.session.loggedIn,
     });
   }
   catch (err) {
@@ -39,8 +39,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 // Redirects to root if user is already logged in.
 router.get('/login', async (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/');
+  if (req.session.loggedIn) {
+    res.redirect('/home');
     return;
   }
   res.render('login');
