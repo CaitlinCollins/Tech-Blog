@@ -2,6 +2,13 @@ const router = require('express').Router();
 const { Model } = require('sequelize/types');
 const { User } = require('../../models');
 
+
+// Takes sign up information and posts it to the User table in the database.
+router.post('/signup', async (req, res) => {
+
+})
+
+// Takes the login information and checks it against the stored users in the database.
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({ where: { userName: req.body.userName }});
@@ -11,6 +18,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
+        // Checks that the password is a match.
         const validPass = await userData.checkPassword(req.body.password);
 
         if (!validPass) {
@@ -18,6 +26,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
+        // Saves a session to logged_in.
         req.session.save(() => {
             req.session.user_name = userData.userName;
             req.session.leggin_in = true;
@@ -30,6 +39,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// Ends the session
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
