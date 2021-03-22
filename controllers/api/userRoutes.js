@@ -7,7 +7,7 @@ router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create( 
             {
-                user_name: req.body.username,
+                user_name: req.body.user_name,
                 password: req.body.password,
             });
         console.log(userData);
@@ -21,7 +21,7 @@ router.post('/signup', async (req, res) => {
 // Takes the login information and checks it against the stored users in the database.
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: { userName: req.body.userName }});
+        const userData = await User.findOne({ where: { user_name: req.body.user_name }});
 
         if (!userData) {
             res.status(400).json({ message: 'Login failed. Please try again.'});
@@ -38,8 +38,8 @@ router.post('/login', async (req, res) => {
 
         // Saves a session to logged_in.
         req.session.save(() => {
-            req.session.user_name = userData.userName;
-            req.session.logged_in = true;
+            req.session.user_name = userData.user_name;
+            req.session.loggedIn = true;
 
             res.json({ user: userData, message: 'You are now logged in!' });
         });
@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
 
 // Ends the session
 router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
         });

@@ -2,14 +2,14 @@ const loginForm = async (event) => {
     event.preventDefault();
 
     // Trim and get the values of the user name and password.
-    const userName = document.querySelector('#userName').value.trim();
+    const user_name = document.querySelector('#userName').value.trim();
     const password = document.querySelector('#password').value.trim();
 
     // If userName and password exist go to post.
-    if (userName && password) {
+    if (user_name && password) {
         const response = await fetch('/api/users/login', {
             method: 'POST',
-            body: JSON.stringify({ userName, password }),
+            body: JSON.stringify({ user_name, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
