@@ -14,7 +14,9 @@
                 <a href="/home">Home</a>
                 <a href="/dashboard">Dashboard</a>
                 <a href="/">Login</a>
-                <a href="/">Logout</a>
+                {{#if logged_in}}
+                <a id="logout" href="/">Logout</a>
+                {{/if}}
             </div>
             <div>
                 <h1>Tech Today Blog</h1>
@@ -24,11 +26,13 @@
             {{{ body }}}
         </main>
    </div>
-	<footer id="lowerContainer" style="text-align:center">
-		<div id="footer">&copy;2021 <a href="/">Tech Today</a>
+    <footer id="lowerContainer" style="text-align:center">
+        <div id="footer">&copy;2021 <a href="/">Tech Today</a>
         </div>
-	</footer>
-	<script src="/js/client.js"></script>
+    </footer>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
