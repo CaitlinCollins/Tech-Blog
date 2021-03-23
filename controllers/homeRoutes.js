@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const { Post } = require('../models');
+const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevents access to the home page if not logged in.
-router.get('/', withAuth, async (req, res) => {
+router.get(['/', '/home'], withAuth, async (req, res) => {
   try {
-  res.render('login', {
+  res.render('home', {
     loggedIn: req.session.loggedIn,
   });
   }
@@ -14,17 +15,17 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// Prevents access to the home page if not logged in.
-router.get('/home', withAuth, async (req, res) => {
-  try {
-  res.render('home', {
-    loggedIn: req.session.loggedIn,
-  });
-  }
-  catch (err){
-    res.status(500).json(err);
-  }
-});
+// // Prevents access to the home page if not logged in.
+// router.get('/home', withAuth, async (req, res) => {
+//   try {
+//   res.render('home', {
+//     loggedIn: req.session.loggedIn,
+//   });
+//   }
+//   catch (err){
+//     res.status(500).json(err);
+//   }
+// });
 
 // Redirects to root if user is already logged in.
 router.get('/login', async (req, res) => {
@@ -49,6 +50,30 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
   catch (err) {
     res.status(500).json(err);
+  }
+});
+
+// Gets the post by id.
+router.get('/home/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [{model: User}],
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: "This post cannot be found!" });
+      return;
+    }
+    res.status(200).json(postData);
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+
+  for (var i = 0; i < posts.length; i++) {
+    if (posts[i].id === req.params.model) {
+      return res.render ('post', posts[i])
+    }
   }
 });
 
