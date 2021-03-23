@@ -58,7 +58,7 @@ router.post('/dashboard', async (req, res) => {
 });
 
 // Gets all posts
-router.get(['/home'], withAuth, async (req, res) => {
+router.get('/home', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       include: [
@@ -81,20 +81,20 @@ router.get(['/home'], withAuth, async (req, res) => {
 });
 
 // Gets the post by id.
-router.get('/home/:id', async (req, res) => {
+router.get('/home/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [{model: User}],
+      include: [
+        {
+          model: User,
+        },
+      ],
     });
-
     const post = postData.get({ plain: true });
-  
-
-    if (!postData) {
-      res.status(404).json({ message: "This post cannot be found!" });
-      return;
-    }
-    res.status(200).json(post);
+    res.render('viewPost', {
+      post,
+      loggedIn: req.session.loggedIn,
+    });
   }
   catch (err) {
     res.status(500).json(err);

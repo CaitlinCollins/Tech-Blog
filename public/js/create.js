@@ -26,13 +26,6 @@ const create = async (event) => {
 };
 
 
-
-
-
-
-
-
-
 document.querySelector('#create').addEventListener('click', create);
 
 

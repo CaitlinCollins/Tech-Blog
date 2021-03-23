@@ -2,8 +2,9 @@
     <h3>{{title}}</h3>
     <p id="user">By: {{user.user_name}}</p>
     <p id="user">{{content}}</p>
-    <p id="user">Created at: {{created_at}}</p>
-    <p id="user">Updated at: {{updated_at}}</p>
+    <p id="update">Updated at: {{updatedAt}}</p>
 
-    <button id="userBtn"><a href="/home/{{post.id}}">View Post</a></button>
+    <button id="viewBtn"><a href="/home/{{id}}">View Post</a></button>
 </div>
+
+<script src="/js/view.js"></script>

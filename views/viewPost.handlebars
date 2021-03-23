@@ -1,22 +1,21 @@
 <div class="createPost">
-    <h2>Create New Post</h2>
+    <h2>View/Edit Post</h2>
      <form class="post-form">
         <div class="form">
         <label class="label" for="title">Title</label>
         </div>
         <div class="form">
-        <input class="input" type="text" id="title">
+        <input class="input" type="text" id="title" value="{{post.title}}"> 
         </div>
         <div class="form">
         <label class="label" for="Content">Content</label>
         </div>
         <div class="form">
         <textarea class="input" type="text" id="content">
+        {{post.content}}
         </textarea>  
         </div>
-        <button id="create">Create</button>
+        <button id="edit">Edit</button>
+        <button id="delete">Delete</button>
     </form>
 </div>
-
-
-<script src="/js/create.js"></script>

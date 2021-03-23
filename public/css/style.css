@@ -34,7 +34,7 @@ h2 {
 }
 
 a {
-    color:antiquewhite;
+    color: antiquewhite;
     text-emphasis: none;
     margin: 5px;
 }
@@ -89,7 +89,7 @@ button:hover{
     margin-left: 15px;
 }
 
-#newPost, #create {
+#newPost, #create, #edit, #delete {
     margin-left: 20px;
     width: 120px;
     height: 40px;
@@ -117,14 +117,28 @@ button:hover{
     border-color: rgb(184, 97, 70);
 }
 
-h3, #user {
+h3 {
     font-size: 20px;
     margin-right: 10px;
     color: rgb(44, 99, 172);
     display: inline;
 }
+#user {
+    font-size: 18px;
+    margin-right: 10px;
+    color: rgb(44, 99, 172);
+    display: inline;
+}
 
-#userBtn {
+#update {
+    font-size: 14px;
+    margin-right: 10px;
+    color: rgb(44, 99, 172);
+    display: inline;
+
+}
+
+#viewBtn {
     float: right;
     background-color: rgb(44, 99, 172);
     color: antiquewhite;
