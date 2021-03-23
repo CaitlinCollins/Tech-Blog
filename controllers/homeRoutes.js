@@ -53,6 +53,22 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// Create new post with user input.
+router.post('/dashboard', async (req, res) => {
+  try {
+    const userData = await Post.create(
+      {
+        title: req.body.title,
+        content: req.body.content,
+        user_id: req.session.user_id,
+      });
+    res.status(200).json(userData);
+  }
+  catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 // Gets the post by id.
 router.get('/home/:id', async (req, res) => {
   try {
@@ -69,28 +85,32 @@ router.get('/home/:id', async (req, res) => {
   catch (err) {
     res.status(500).json(err);
   }
-
-  for (var i = 0; i < posts.length; i++) {
-    if (posts[i].id === req.params.model) {
-      return res.render ('post', posts[i])
-    }
-  }
 });
 
-// Create new post with user input.
-router.post('/dashboard', async (req, res) => {
+// Updates the post by id.
+router.put('/home/:id', async (req, res) => {
   try {
-    const userData = await Post.create(
+    const postData = await Post.update(
       {
         title: req.body.title,
         content: req.body.content,
-        user_id: req.session.user_id,
-      });
-    res.status(200).json(userData);
-  }
-  catch (err) {
-    res.status(400).json(err);
-  }
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    )
+    if (!postData) {
+      res.status(404).json({message: "No update found."});
+      return;
+    }
+
+      res.status(200).json(postData);
+    }
+    catch (err) {
+      res.status(400).json(err);
+   }
 });
 
 
