@@ -1,6 +1,6 @@
-{{#if create}}
-<div class="newPost">
-    <h1>Create New Post</h1>
+{{!-- {{#if newPost}} --}}
+<div class="createPost">
+    <h2>Create New Post</h2>
      <form class="post-form">
         <div class="form">
         <label class="label" for="title">Title</label>
@@ -15,8 +15,10 @@
         <textarea class="input" type="text" id="content">
         </textarea>  
         </div>
-        <button class="create">Create</button>
+        <button id="create">Create</button>
     </form>
 </div>
-{{/if}}
-<button class="create">New Post</button>
+{{!-- {{/if}}
+<button id="newPost">New Post</button> --}}
+
+<script src="/js/client.js"></script>

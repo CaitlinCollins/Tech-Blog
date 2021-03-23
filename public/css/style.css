@@ -46,6 +46,15 @@ a {
     border-style: solid; 
     border-color: rgb(184, 97, 70);
 }
+
+.createPost {
+    margin: 80px 10px 150px 10px;
+    padding: 5px 0px;
+    height: 480px;
+    width: 650px;
+    border-style: solid; 
+    border-color: rgb(184, 97, 70);
+}
 #footer {
     background-color: rgb(184, 97, 70);
     height: 20px;
@@ -72,7 +81,7 @@ a {
     color: antiquewhite;
     background-color: rgb(184, 97, 70);
 }
-.login:hover {
+button:hover{
     cursor: pointer;
 }
 
@@ -80,9 +89,8 @@ a {
     margin-left: 15px;
 }
 
-.create {
-    margin-top: 570px;
-    margin-left: 10px;
+#newPost, #create {
+    margin-left: 20px;
     width: 120px;
     height: 40px;
     font-size: 16px;
@@ -90,6 +98,14 @@ a {
     background-color: rgb(44, 99, 172);
 }
 
-.create:hover {
-    cursor: pointer;
+#title {
+    width: 600px;
+    font-size: 18px;
 }
+
+#content {
+    width: 600px;
+    height: 180px;
+    font-size: 14px;
+}
+

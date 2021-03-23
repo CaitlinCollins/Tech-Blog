@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevents access to the home page if not logged in.
@@ -48,6 +49,22 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
   catch (err) {
     res.status(500).json(err);
+  }
+});
+
+// Create new post with user input.
+router.post('/dashboard', async (req, res) => {
+  try {
+    const userData = await Post.create(
+      {
+        title: req.body.title,
+        content: req.body.content,
+        user_id: req.session.user_id,
+      });
+    res.status(200).json(userData);
+  }
+  catch (err) {
+    res.status(400).json(err);
   }
 });
 
