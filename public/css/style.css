@@ -109,3 +109,19 @@ button:hover{
     font-size: 14px;
 }
 
+#postBlock {
+    margin: 20px;
+    padding: 10px;
+    background-color: antiquewhite;
+    border-style: solid; 
+    border-color: rgb(184, 97, 70);
+}
+
+h3, #user {
+    font-size: 20px;
+    margin-right: 10px;
+    color: rgb(44, 99, 172);
+    display: inline;
+}
+
+
