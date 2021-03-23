@@ -124,4 +124,10 @@ h3, #user {
     display: inline;
 }
 
+#userBtn {
+    float: right;
+    background-color: rgb(44, 99, 172);
+    color: antiquewhite;
+}
+
 
