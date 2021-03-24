@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post } = require('../models');
 const { User } = require('../models');
+const withAuth = require('../utils/auth');
 
 
 // Redirects to root if user is already logged in.
@@ -45,7 +46,7 @@ router.get(['/','/home'], async (req, res) => {
 });
 
 // Gets the post by id.
-router.get('/home/:id', async (req, res) => {
+router.get('/home/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [

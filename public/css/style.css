@@ -31,11 +31,12 @@ h2 {
     font-weight: bolder;
     color: antiquewhite;
     margin-left: 20px;
+    display: inline;
 }
 
 a {
     color: antiquewhite;
-    text-emphasis: none;
+    text-decoration: none;
     margin: 5px;
 }
 .signupContainer {
@@ -49,12 +50,26 @@ a {
 
 .createPost {
     margin: 80px 10px 150px 10px;
-    padding: 5px 0px;
+    padding-top: 20px;
     height: 480px;
     width: 650px;
     border-style: solid; 
     border-color: rgb(184, 97, 70);
 }
+
+.viewPost {
+    margin: 80px 10px 150px 10px;
+    height: 480px;
+    width: 650px;
+    border-style: solid; 
+    background-color: white;
+    border-color: antiquewhite;
+}
+
+.viewHeader {
+    background-color:rgb(184, 97, 70);
+}
+
 #footer {
     background-color: rgb(184, 97, 70);
     height: 20px;
@@ -74,7 +89,7 @@ a {
 .label {
     color: antiquewhite;
 }
-.login {
+#loginBtn, #signUpBtn {
     width: 408px;
     font-size: 24px;
     height: 40px;
@@ -123,6 +138,23 @@ h3 {
     color: rgb(44, 99, 172);
     display: inline;
 }
+
+h4 {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    color: antiquewhite;
+    display: inline-block;  
+}
+
+h5 {
+    margin: 0px 0px 0px 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+    color: antiquewhite;
+}
+
+
 #user {
     font-size: 18px;
     margin-right: 10px;
@@ -144,4 +176,37 @@ h3 {
     color: antiquewhite;
 }
 
+.postContent {
+    position: relative;
+    font-size: 18px;
+    margin-left: 10px;
+    padding: 10px 10px;
+    color:rgb(68, 68, 68);
+    overflow: scroll;
+}
+
+.userCommentLabel {
+    position: absolute;
+    bottom: 200px;
+    color: rgb(68, 68, 68);
+    font-size: 18px;
+}
+
+.userComment {
+    position: absolute;
+    font-size: 18px;
+    bottom: 170px;
+    width: 600px;
+}
+
+#commentBtn {
+    position: absolute;
+    bottom: 120px;
+    margin-left: 20px;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    color: antiquewhite;
+    background-color: rgb(44, 99, 172);
+}
 

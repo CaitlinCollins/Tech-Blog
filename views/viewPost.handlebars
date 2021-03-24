@@ -1,12 +1,17 @@
-<div class="createPost">
-    <h2>View Post</h2>
-    <h3>{{post.title}}</h3>
-    <h4>{{post.user.user_name}}</h4>
-    <h5>{{post.createdAt}}</h5>
-    <hr>
-    <p>{{post.content}}</p>
-
-    <button id="comment">Leave a Comment</button>
+<div class="viewPost">
+    <div class="viewHeader">
+    <h2 class="create">{{post.title}}</h2>
+    <h4 class="create">By: {{post.user.user_name}}</h4>
+    <h5>Created On: {{post.createdAt}}</h5>
+    </div>
+    <p class="postContent">{{post.content}}</p>
+    <div class="form">
+        <label class="label userCommentLabel" for="userName">Leave a Comment: </label>
+    </div>
+    <div class="form">
+        <input class="input userComment" type="text">
+    </div>
+    <button id="commentBtn">Submit</button>
 </div>
 <div id="commentsDiv">
     {{!-- put a comments partial here! --}}
