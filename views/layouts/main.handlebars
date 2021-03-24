@@ -12,9 +12,9 @@
         <header>
             <div id="navbar">
                 <a href="/home">Home</a>
-                <a href="/dashboard">Dashboard</a>
+                <a href="/dashboard/dashboard">Dashboard</a>
                 {{#unless loggedIn}}
-                <a href="/">Login</a>
+                <a href="/login">Login</a>
                 {{/unless}}
                 {{#if loggedIn}}
                 <a id="logout" href="/">Logout</a>
