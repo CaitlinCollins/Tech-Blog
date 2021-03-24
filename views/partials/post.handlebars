@@ -1,10 +1,9 @@
 <div id="postBlock">
     <h3>{{title}}</h3>
     <p id="user">By: {{user.user_name}}</p>
-    <p id="user">{{content}}</p>
-    <p id="update">Updated at: {{updatedAt}}</p>
-
+    <p id="update">Updated at: {{createdAt}}</p>
     <button id="viewBtn"><a href="/home/{{id}}">View Post</a></button>
+    <p id="postContent">{{content}}</p>
 </div>
 
 <script src="/js/view.js"></script>

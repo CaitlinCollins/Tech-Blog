@@ -14,9 +14,9 @@ const signUpForm = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        // If everything is ok, replace /signup with /login.
+        // If everything is ok, replace /signup with /home.
         if (response.ok) {
-            document.location.replace('/login');
+            document.location.replace('/home');
         }
         else {
             alert('Signup unsuccessful.');
