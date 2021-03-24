@@ -14,6 +14,10 @@ router.get('/login', async (req, res) => {
 
 // Directs to signup page on click event.
 router.get('/signup', async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/home');
+    return;
+  }
   res.render('signup');
 })
 

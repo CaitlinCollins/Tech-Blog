@@ -7,7 +7,7 @@ const create = async (event) => {
 
     // If title and content exist, go to post.
     if (title && content) {
-        const response = await fetch('/dashboard', 
+        const response = await fetch('/dashboard/create', 
         {
             method: 'POST',
             body: JSON.stringify({ title, content }),

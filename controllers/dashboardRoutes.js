@@ -15,8 +15,20 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
   });
   
+
+router.get('/create', withAuth, async (req, res) => {
+try {
+    res.render('create', {
+    loggedIn: req.session.loggedIn,
+    });
+}
+catch (err) {
+    res.status(500).json(err);
+}
+});
+
 // Create new post with user input.
-router.post('/dashboard', async (req, res) => {
+router.post('/create', async (req, res) => {
 try {
     const userData = await Post.create(
     {

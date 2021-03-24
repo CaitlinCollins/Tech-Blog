@@ -7,7 +7,7 @@ const signUpForm = async (event) => {
 
     // If signUpUser and signUpPass exist, go to post.
     if (user_name && password) {
-        const response = await fetch('/api/users/signup', 
+        const response = await fetch('api/users/signup', 
         {
             method: 'POST',
             body: JSON.stringify({ user_name, password }),
@@ -24,7 +24,7 @@ const signUpForm = async (event) => {
     }
 };
 
-document.querySelector('.signup-form').addEventListener('sumbit', signUpForm);
+document.querySelector('#signUpBtn').addEventListener('click', signUpForm);
 
 const logIn = async (event) => {
     event.preventDefault();
