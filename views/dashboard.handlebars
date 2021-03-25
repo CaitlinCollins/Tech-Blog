@@ -1,21 +1,9 @@
-<div class="createPost">
-    <h2>View/Edit Post</h2>
-     <form class="post-form">
-        <div class="form">
-        <label class="label" for="title">Title</label>
-        </div>
-        <div class="form">
-        <input class="input" type="text" id="title" value="{{post.title}}"> 
-        </div>
-        <div class="form">
-        <label class="label" for="Content">Content</label>
-        </div>
-        <div class="form">
-        <textarea class="input" type="text" id="content">
-        {{post.content}}
-        </textarea>  
-        </div>
-        <button id="edit">Edit</button>
-        <button id="delete">Delete</button>
-    </form>
+<div>
+There should be something here!
+{{#each posts as |post|}}
+{{> post}}
+{{/each}}
+</div>
+<div>
+   <button id="newPostBtn"><a href="/dashboard/create/"></a>Create a New Post!</button>
 </div>

@@ -3,19 +3,8 @@ const { Post } = require('../models');
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Prevents access to the dashboard page if not logged in.
-router.get('/dashboard', withAuth, async (req, res) => {
-    try {
-      res.render('dashboard', {
-        loggedIn: req.session.loggedIn,
-      });
-    }
-    catch (err) {
-      res.status(500).json(err);
-    }
-  });
-  
 
+// Create post
 router.get('/create', withAuth, async (req, res) => {
 try {
     res.render('create', {
@@ -25,6 +14,31 @@ try {
 catch (err) {
     res.status(500).json(err);
 }
+});
+
+// Get all posts by user
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.user_id,
+      {
+        include: [{model: User}],
+      },
+      {
+        where: {
+          user_id : req.session.user_id,
+        }, 
+    });
+    const user_posts = postData.map((user_post) => 
+    user_post.get( { plain: true })
+    );
+    res.render('dashboard', {
+      user_posts,
+      loggedIn: req.session.loggedIn,
+    });
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // Create new post with user input.

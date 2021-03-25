@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post } = require('../models');
 const { User } = require('../models');
+const { Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -46,6 +47,7 @@ router.get(['/','/home'], async (req, res) => {
 });
 
 // Gets the post by id.
+// ///// Trouble with the comments part!
 router.get('/home/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -53,6 +55,9 @@ router.get('/home/:id', withAuth, async (req, res) => {
         {
           model: User,
         },
+        // {
+        //   model: Comment,
+        // }
       ],
     });
     const post = postData.get({ plain: true });
@@ -63,6 +68,22 @@ router.get('/home/:id', withAuth, async (req, res) => {
   }
   catch (err) {
     res.status(500).json(err);
+  }
+});
+
+// Create new comment with user input.
+router.post('/home/:id', async (req, res) => {
+  try {
+    const userData = await Comment.create(
+      {
+        user_comment: req.body.user_comment,
+        user_id: req.session.user_id,
+        // post_id: This might be a problem later
+      });
+      res.status(200).json(userData);
+  } 
+  catch (err) {
+    res.status(400).json(err);
   }
 });
 

@@ -24,14 +24,14 @@ User.hasMany(Comment, {
 });
 
 // Comment belongsTo Post
-Comment.belongsTo(Post, {
-    foreignKey: 'post_id',
-});
+// Comment.belongsTo(Post, {
+//     foreignKey: 'post_id',
+// });
 
 // Post hasMany Comment 
-Post.hasMany(Comment, {
-    foreignKey: 'post_id',
-});
+// Post.hasMany(Comment, {
+//     foreignKey: 'post_id',
+// });
 
 
 
@@ -39,5 +39,6 @@ Post.hasMany(Comment, {
 
 module.exports = { 
     User,
-    Post
+    Post,
+    Comment
 };

@@ -13,6 +13,10 @@
     </div>
     <button id="commentBtn">Submit</button>
 </div>
-<div id="commentsDiv">
-    {{!-- put a comments partial here! --}}
+<div class="commentsDiv">
+    {{!-- {{#each user_comments as |user_comment|}} --}}
+    {{> comment}}
+    {{!-- {{/each}} --}}
 </div>
+
+<script src="/js/comments.js"></script>
