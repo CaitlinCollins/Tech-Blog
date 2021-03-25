@@ -55,9 +55,9 @@ router.get('/home/:id', withAuth, async (req, res) => {
         {
           model: User,
         },
-        // {
-        //   model: Comment,
-        // }
+      //   {
+      //     model: Comment,
+      //   }
       ],
     });
     const post = postData.get({ plain: true });
@@ -73,12 +73,13 @@ router.get('/home/:id', withAuth, async (req, res) => {
 
 // Create new comment with user input.
 router.post('/home/:id', async (req, res) => {
+  const user_id = req.session.user_id;
   try {
     const userData = await Comment.create(
       {
         user_comment: req.body.user_comment,
-        user_id: req.session.user_id,
-        // post_id: This might be a problem later
+        user_id: user_id,
+        post_id: req.body.post_id,
       });
       res.status(200).json(userData);
   } 

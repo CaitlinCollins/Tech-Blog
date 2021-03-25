@@ -19,15 +19,21 @@ catch (err) {
 // Get all posts by user
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.user_id,
+    const postData = await Post.findAll(
       {
-        include: [{model: User}],
-      },
-      {
+      include: [
+        {
+          model: User,
+          attributes: [
+            'user_name',
+          ],
+        },
+      ],
         where: {
-          user_id : req.session.user_id,
-        }, 
-    });
+          user_id: req.session.user_id,
+        }
+      });
+    
     const user_posts = postData.map((user_post) => 
     user_post.get( { plain: true })
     );
