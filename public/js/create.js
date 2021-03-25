@@ -1,7 +1,7 @@
 const create = async (event) => {
     event.preventDefault();
 
-    // Trim and get the vaulues of the title and content.
+    // Trim and get the values of the title and content.
     const title = document.querySelector('#title').value.trim();
     const content = document.querySelector('#content').value.trim();
 
@@ -14,10 +14,10 @@ const create = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        // If everything is ok, replace /dashboard with /home.
+        // If everything is ok, replace with /dashboard.
         if (response.ok) {
-            alert('New Post Created')
-            document.location.replace('/home');
+            alert('New Post Created!');
+            document.location.replace('/dashboard/dashboard');
         }
         else {
             alert('Post failed.');
@@ -27,10 +27,6 @@ const create = async (event) => {
 
 
 document.querySelector('#create').addEventListener('click', create);
-
-
-
-
 
 
 

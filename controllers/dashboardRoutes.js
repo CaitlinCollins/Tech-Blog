@@ -16,6 +16,7 @@ catch (err) {
 }
 });
 
+
 // Get all posts by user
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
@@ -62,6 +63,27 @@ catch (err) {
     res.status(400).json(err);
 }
 });
+
+// Gets post from dashboard
+router.get('/dashboard/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
+    const post = postData.get({ plain: true });
+    res.render('edit', {
+      post,
+      loggedIn: req.session.loggedIn,
+    });
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 // Updates the post by id.
 router.put('/dashboard/:id', async (req, res) => {
