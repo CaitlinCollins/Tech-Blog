@@ -46,31 +46,6 @@ router.get(['/','/home'], async (req, res) => {
   }
 });
 
-// Gets the post by id.
-// ///// Trouble with the comments part!
-router.get('/home/:id', withAuth, async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-        },
-      //   {
-      //     model: Comment,
-      //   }
-      ],
-    });
-    const post = postData.get({ plain: true });
-    res.render('viewPost', {
-      post,
-      loggedIn: req.session.loggedIn,
-    });
-  }
-  catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // Create new comment with user input.
 router.post('/home/:id', async (req, res) => {
   const user_id = req.session.user_id;
@@ -85,6 +60,35 @@ router.post('/home/:id', async (req, res) => {
   } 
   catch (err) {
     res.status(400).json(err);
+  }
+});
+
+// Gets the post by id.
+// ///// Trouble with the comments part!
+router.get('/home/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findOne(
+      {
+        where: {
+          id: req.params.id,
+        },
+        include: [
+          {
+            model: User,
+          },
+          {
+            model: Comment,
+          }
+        ],
+      });
+    const post = postData.get({ plain: true });
+    res.render('viewPost', {
+      post,
+      loggedIn: req.session.loggedIn,
+    });
+  }
+  catch (err) {
+    res.status(500).json(err);
   }
 });
 

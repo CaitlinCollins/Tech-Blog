@@ -1,7 +1,7 @@
 const edit = async (event) => {
     event.preventDefault();
     const id = event.target.getAttribute('data-id');
-    console.log(id);
+   
     // Trim and get the values of the title and content.
     const title = document.querySelector('#title').value.trim();
     const content = document.querySelector('#content').value.trim();
