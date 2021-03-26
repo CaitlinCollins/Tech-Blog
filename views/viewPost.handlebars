@@ -14,9 +14,9 @@
     <button id="commentBtn" data-id="{{post.id}}">Submit</button>
 </div>
 <div class="commentsDiv">
-    {{!-- {{#each user_comments as |user_comment|}} --}}
+    {{#each user_comments as |user_comment|}}
     {{> comment}}
-    {{!-- {{/each}} --}}
+    {{/each}}
 </div>
 
 <script src="/js/comments.js"></script>
