@@ -25,6 +25,12 @@
   
   ## Screenshots
   
+  ### Login
+  ![login](https://github.com/CaitlinCollins/tech-blog/blob/main/public/images/login.png)
+  
+  ### Home
+  ![home](https://github.com/CaitlinCollins/tech-blog/blob/main/public/images/home.png)
+  
   ## Contributing
   No specified contribution information. 
 
