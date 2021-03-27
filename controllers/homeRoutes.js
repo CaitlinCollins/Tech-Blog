@@ -85,15 +85,20 @@ router.get('/home/:id', withAuth, async (req, res) => {
         where: {
           post_id: req.params.id,
         },
+        include: [
+          {
+            model: User,
+          }
+        ]
       }
     );
 
-    const comments = commentData.map((comment) =>
-    comment.get({ plain: true })
+    const user_comments = commentData.map((user_comment) =>
+    user_comment.get({ plain: true })
     );
     res.render('viewPost', {
       post,
-      comments,
+      user_comments,
       loggedIn: req.session.loggedIn,
     });
   }
