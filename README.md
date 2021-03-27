@@ -31,6 +31,18 @@
   ### Home
   ![home](https://github.com/CaitlinCollins/tech-blog/blob/main/public/images/home.png)
   
+  ### View
+  ![view](https://github.com/CaitlinCollins/tech-blog/blob/main/public/images/view.png)
+  
+  ### Dashboard
+  ![dashboard](https://github.com/CaitlinCollins/tech-blog/blob/main/public/images/dashboard.png)
+  
+  ### Create
+  ![create](https://github.com/CaitlinCollins/tech-blog/blob/main/public/images/create.png)
+  
+  ### Edit/Delete
+  ![edit](https://github.com/CaitlinCollins/tech-blog/blob/main/public/images/edit.png)
+  
   ## Contributing
   No specified contribution information. 
 
