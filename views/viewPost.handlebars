@@ -1,22 +1,28 @@
-<div class="viewPost">
-    <div class="viewHeader">
-    <h2 class="create">{{post.title}}</h2>
-    <h4 class="create">By: {{post.user.user_name}}</h4>
-    <h5>Created On: {{post.createdAt}}</h5>
+<div class="row">
+    <div class="col-md-6">
+        <div class="viewPost">
+        <div class="viewHeader">
+        <h2 class="create">{{post.title}}</h2>
+        <h4 class="create">By: {{post.user.user_name}}</h4>
+        <h5>Created On: {{post.createdAt}}</h5>
+        </div>
+        <p class="postContent">{{post.content}}</p>
+        <div class="form">
+            <label class="label userCommentLabel" for="userName">Leave a Comment: </label>
+        </div>
+        <div class="form">
+            <input class="input userComment" type="text">
+        </div>
+        <button id="commentBtn" data-id="{{post.id}}">Submit</button>
+        </div>
     </div>
-    <p class="postContent">{{post.content}}</p>
-    <div class="form">
-        <label class="label userCommentLabel" for="userName">Leave a Comment: </label>
+    <div class="col-md-6">
+        <div class="commentsDiv">
+            {{#each user_comments as |user_comment|}}
+            {{> comments}}
+            {{/each}}
+        </div>
     </div>
-    <div class="form">
-        <input class="input userComment" type="text">
-    </div>
-    <button id="commentBtn" data-id="{{post.id}}">Submit</button>
-</div>
-<div class="commentsDiv">
-    {{#each user_comments as |user_comment|}}
-    {{> comments}}
-    {{/each}}
 </div>
 
 <script src="/js/comments.js"></script>

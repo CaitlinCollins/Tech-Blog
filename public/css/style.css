@@ -4,26 +4,17 @@ body {
     padding: 0;
 }
 
-#container {
-  height: auto;
-  padding-bottom: 100px;
-}
-
 header {
     margin-top: 10px;
     background-color: rgb(184, 97, 70);
     height: 110px;
-}
-#navbar {
-    height: 30px;
-    padding: 10px;
 }
 
 h1 {
     font-size: 36px;
     font-weight: bolder;
     color: antiquewhite;
-    margin: 0px 0px 0px 12px;
+    margin: 20px 0px 0px 12px;
 }
 
 h2 {
@@ -34,15 +25,44 @@ h2 {
     display: inline;
 }
 
+h3 {
+    font-size: 20px;
+    margin-right: 10px;
+    color: rgb(44, 99, 172);
+    display: inline;
+}
+
+h4 {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    color: antiquewhite;
+    display: inline-block;  
+}
+
+h5 {
+    margin: 0px 0px 0px 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+    color: antiquewhite;
+}
+
 a {
     color: antiquewhite;
     text-decoration: none;
-    margin: 5px;
+    margin: 8px;
 }
+
+button:hover{
+    cursor: pointer;
+}
+
+/* Class Stylings */
+
 .signupContainer {
     margin: 80px 10px 150px 10px;
     padding: 20px 0px 0px 0px;
-    height: 360px;
+    height: 420px;
     width: 450px;
     border-style: solid; 
     border-color: rgb(184, 97, 70);
@@ -58,7 +78,7 @@ a {
 }
 
 .viewPost {
-    margin: 80px 10px 150px 10px;
+    margin: 80px 10px 150px 60px;
     height: 480px;
     width: 650px;
     border-style: solid; 
@@ -69,20 +89,14 @@ a {
 
 .commentsDiv {
     display: inline-block;
+    margin: 60px 0 0 60px;
 }
 
 .viewHeader {
     background-color:rgb(184, 97, 70);
+    padding-top: 10px;
 }
 
-#footer {
-    background-color: rgb(184, 97, 70);
-    height: 20px;
-    width: 100%;
-    padding: 10px;
-    position: fixed;
-    bottom: 10px;
-}
 .form {
     margin: 20px;
 }
@@ -91,22 +105,66 @@ a {
     width: 400px;
     font-size: 24px;
 }
+
 .label {
     color: antiquewhite;
 }
+
+.signup {
+    margin-left: 15px;
+}
+
+.postContent {
+    position: relative;
+    font-size: 18px;
+    margin-left: 10px;
+    padding: 10px 10px;
+    color:rgb(68, 68, 68);
+    overflow: scroll;
+}
+
+.userCommentLabel {
+    position: absolute;
+    bottom: 190px;
+    color: rgb(68, 68, 68);
+    font-size: 18px;
+}
+
+.userComment {
+    position: absolute;
+    font-size: 18px;
+    bottom: 160px;
+    width: 600px;
+}
+
+
+/* Id Stylings */
+
+#container {
+  height: auto;
+  padding-bottom: 100px;
+}
+
+#navbar {
+    height: 30px;
+    padding: 10px;
+}
+
+#footer {
+    background-color: rgb(184, 97, 70);
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    bottom: 10px;
+}
+
 #loginBtn, #signUpBtn {
     width: 408px;
     font-size: 24px;
     height: 40px;
     color: antiquewhite;
     background-color: rgb(184, 97, 70);
-}
-button:hover{
-    cursor: pointer;
-}
-
-.signup {
-    margin-left: 15px;
 }
 
 #newPostBtn, #create, #edit, #delete {
@@ -137,29 +195,6 @@ button:hover{
     border-color: rgb(184, 97, 70);
 }
 
-h3 {
-    font-size: 20px;
-    margin-right: 10px;
-    color: rgb(44, 99, 172);
-    display: inline;
-}
-
-h4 {
-    font-size: 20px;
-    margin-left: 10px;
-    margin-bottom: 15px;
-    color: antiquewhite;
-    display: inline-block;  
-}
-
-h5 {
-    margin: 0px 0px 0px 20px;
-    padding-bottom: 20px;
-    font-size: 16px;
-    color: antiquewhite;
-}
-
-
 #user {
     font-size: 18px;
     margin-right: 10px;
@@ -181,29 +216,6 @@ h5 {
     color: antiquewhite;
 }
 
-.postContent {
-    position: relative;
-    font-size: 18px;
-    margin-left: 10px;
-    padding: 10px 10px;
-    color:rgb(68, 68, 68);
-    overflow: scroll;
-}
-
-.userCommentLabel {
-    position: absolute;
-    bottom: 190px;
-    color: rgb(68, 68, 68);
-    font-size: 18px;
-}
-
-.userComment {
-    position: absolute;
-    font-size: 18px;
-    bottom: 160px;
-    width: 600px;
-}
-
 #commentBtn {
     position: absolute;
     bottom: 120px;
@@ -216,7 +228,8 @@ h5 {
 } 
 
 #newPostBtn {
-    margin: 20px 10px 0 0;
-    float: right
+    margin: 20px 0 0 25px;
+    background-color: rgb(184, 97, 70);
+    
 }
 
